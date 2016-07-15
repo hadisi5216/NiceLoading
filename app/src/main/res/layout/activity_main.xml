@@ -14,7 +14,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginBottom="220dp"
+            android:layout_alignParentBottom="true"
             android:gravity="center_horizontal"
             android:orientation="horizontal">
 
@@ -22,22 +23,21 @@
                 android:id="@+id/start"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:text="开始" />
+                android:text="start" />
 
             <Button
                 android:id="@+id/success"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:text="成功" />
+                android:text="success" />
 
             <Button
                 android:id="@+id/failed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:text="失败" />
+                android:text="failed" />
 
         </LinearLayout>
 
@@ -46,7 +46,7 @@
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="200dp" />
+            android:layout_marginBottom="100dp" />
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>

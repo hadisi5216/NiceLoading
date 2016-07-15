@@ -60,27 +60,27 @@ public class NiceLoadingView extends View {
         mPaint.setColor(0xFFFFBC53);
         mPaint.setAntiAlias(true);
         if (Math.abs(moveX) > widthSpecSize * 5 / 4) {
-            XPoint = (moveX < 0) ? XPoint = -radiusSmall + widthSpecSize * 7 / 4 - Math.abs(moveX) : radiusSmall + widthSpecSize - widthSpecSize * 7 / 4 + Math.abs(moveX);
+            XPoint = (moveX < 0) ? XPoint = widthSpecSize * 7 / 4 - Math.abs(moveX) : widthSpecSize - widthSpecSize * 7 / 4 + Math.abs(moveX);
             canvas.drawCircle(XPoint, heightSpecSize / 2, radiusSmall, mPaint);
         }
         if (Math.abs(moveX) > widthSpecSize && Math.abs(moveX) < widthSpecSize * 3 / 2) {
-            XPoint = (moveX < 0) ? XPoint = -radiusSmall + widthSpecSize * 3 / 2 - Math.abs(moveX) : radiusSmall + widthSpecSize - widthSpecSize * 3 / 2 + Math.abs(moveX);
+            XPoint = (moveX < 0) ? XPoint = widthSpecSize * 3 / 2 - Math.abs(moveX) : widthSpecSize - widthSpecSize * 3 / 2 + Math.abs(moveX);
             canvas.drawCircle(XPoint, heightSpecSize / 2, radiusSmall, mPaint);
         }
         if (Math.abs(moveX) > widthSpecSize * 3 / 4 && Math.abs(moveX) < widthSpecSize * 5 / 4) {
-            XPoint = (moveX < 0) ? XPoint = -radiusSmall + widthSpecSize * 5 / 4 - Math.abs(moveX) : radiusSmall + widthSpecSize - widthSpecSize * 5 / 4 + Math.abs(moveX);
+            XPoint = (moveX < 0) ? XPoint = widthSpecSize * 5 / 4 - Math.abs(moveX) : widthSpecSize - widthSpecSize * 5 / 4 + Math.abs(moveX);
             canvas.drawCircle(XPoint, heightSpecSize / 2, radiusSmall, mPaint);
         }
         if (Math.abs(moveX) > widthSpecSize / 2 && Math.abs(moveX) < widthSpecSize) {
-            XPoint = (moveX < 0) ? XPoint = -radiusSmall + widthSpecSize - Math.abs(moveX) : radiusSmall + widthSpecSize - widthSpecSize + Math.abs(moveX);
+            XPoint = (moveX < 0) ? XPoint = widthSpecSize - Math.abs(moveX) : widthSpecSize - widthSpecSize + Math.abs(moveX);
             canvas.drawCircle(XPoint, heightSpecSize / 2, radiusSmall, mPaint);
         }
         if (Math.abs(moveX) > widthSpecSize / 4 && Math.abs(moveX) < widthSpecSize * 3 / 4) {
-            XPoint = (moveX < 0) ? XPoint = -radiusSmall + widthSpecSize * 3 / 4 - Math.abs(moveX) : radiusSmall + widthSpecSize - widthSpecSize * 3 / 4 + Math.abs(moveX);
+            XPoint = (moveX < 0) ? XPoint = widthSpecSize * 3 / 4 - Math.abs(moveX) : widthSpecSize - widthSpecSize * 3 / 4 + Math.abs(moveX);
             canvas.drawCircle(XPoint, heightSpecSize / 2, radiusSmall, mPaint);
         }
         if (Math.abs(moveX) > 0 && Math.abs(moveX) < widthSpecSize / 2) {
-            XPoint = (moveX < 0) ? XPoint = -radiusSmall + widthSpecSize / 2 - Math.abs(moveX) : radiusSmall + widthSpecSize - widthSpecSize / 2 + Math.abs(moveX);
+            XPoint = (moveX < 0) ? XPoint = widthSpecSize / 2 - Math.abs(moveX) : widthSpecSize - widthSpecSize / 2 + Math.abs(moveX);
             canvas.drawCircle(XPoint, heightSpecSize / 2, radiusSmall, mPaint);
         }
         //中间大圆
@@ -122,6 +122,12 @@ public class NiceLoadingView extends View {
                     public void onAnimationUpdate(ValueAnimator animation) {
                         if (mState < 0) {
                             moveX = (moveX > widthSpecSize * 7 / 4) ? widthSpecSize * (-9 / 4) : moveX + 12;
+                            if (Math.abs(moveX) < 12)
+                                try {
+                                    Thread.sleep(1000);
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
                         } else {
                             if (moveX > 0)
                                 moveX = (moveX > widthSpecSize * 7 / 4) ? widthSpecSize * (-9 / 4) : moveX + 12;

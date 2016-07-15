@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -31,10 +32,13 @@ public class MainActivity extends AppCompatActivity {
     public void onClick(View view) {
         if (view.getId() == R.id.start) {
             niceLoading.start();
+            Toast.makeText(this, "start", Toast.LENGTH_SHORT).show();
         } else if (view.getId() == R.id.success) {
             niceLoading.success();
+            Toast.makeText(this, "success", Toast.LENGTH_SHORT).show();
         } else if (view.getId() == R.id.failed) {
             niceLoading.failed();
+            Toast.makeText(this, "failed", Toast.LENGTH_SHORT).show();
         }
     }
 }
